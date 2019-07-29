@@ -2,8 +2,6 @@ import React from "react";
 
 const Login = () => {
   return (
-
-
     <div className="login">
       <h1>Welcome to back to Noise Control</h1>
       <h3>Log in here to see your classrooms.</h3>
@@ -20,13 +18,6 @@ const Login = () => {
       </form>
     </div>
   );
-
-  let imageURL="./img/ian-parker-JRhVvF5VHG4-unsplash.jpg"
-  let styles = {
-    login: {
-      backgroundImage: 'url(' + imageURL + ')
-    }
-  }
 };
 
 export default Login;
