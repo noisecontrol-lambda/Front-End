@@ -23,11 +23,22 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.class-page {
+  border: 10px solid black;
+  height: 100vh;
+  padding: 5px;
+}
+
+.class-stats-wrapper {
+  border: 10px solid dodgerblue;
+  background-color: sandybrown;
+  margin: 20px 50px;
+  border-radius: 10px;
+}
+
+.class-stats {
+  display: block;
+  font-size: 20px;
+  border: 10px solid sandybrown;
+  border-radius: 100px;
 }

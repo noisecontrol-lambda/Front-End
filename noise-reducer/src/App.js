@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import Class from './components/Class'
 import sampleData from './sampleData'
 
