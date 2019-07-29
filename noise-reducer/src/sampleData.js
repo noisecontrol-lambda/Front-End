@@ -9,12 +9,15 @@ const sampleData = {
     "intake": null,
     "classes":
       [
-        {'grade': 'first',
+        {'grade': 'First',
         'size': 20,
         'streak': 0},
-        {'grade':'second',
+        {'grade':'Second',
         'size': 15,
-        'streak': 1}
+        'streak': 1},
+        {'grade':'Third',
+        'size': 8,
+        'streak': 23}
       ]
   }
 
