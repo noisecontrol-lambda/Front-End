@@ -1,3 +1,5 @@
+$primary-color: 8e2e6a;
+
 .App {
   text-align: center;
   display: flex;
@@ -5,6 +7,15 @@
   align-items: center;
   margin-top: 80px;
   font-family: Lato;
+
+  div.ui.card.welcome {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+  }
 
   .login {
     display: flex;
