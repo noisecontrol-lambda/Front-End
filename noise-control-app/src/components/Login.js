@@ -6,17 +6,25 @@ const Login = () => {
     <Card className="login">
       <h1>Welcome to back to Noise Control</h1>
       <h3>Log in here to see your classrooms.</h3>
-      <p>
-        Need to create an account? <span>Start here.</span>
-      </p>
+
       <img src="./img/ian-parker-JRhVvF5VHG4-unsplash.jpg" alt="" />
       <form className="login-form">
-        <input type="fname" name="fname" placeholder="First name goes here." />
-
-        <input type="lname" name="lname" placeholder="Last name goes here." />
-
         <input type="email" name="email" placeholder="Email goes here." />
+        <input
+          type="password"
+          name="password"
+          placeholder="Type password here."
+        />
       </form>
+      <p>
+        Need to create an account?{" "}
+        <span>
+          Head over{" "}
+          <a href="#" className="create-link">
+            here.
+          </a>
+        </span>
+      </p>
     </Card>
   );
 };

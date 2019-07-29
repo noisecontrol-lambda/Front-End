@@ -1,4 +1,6 @@
-$primary-color: 8e2e6a;
+$primary-color: #8e2e6a;
+$secondary-color: #311054;
+$highlight-color: #bfcd7e;
 
 .App {
   text-align: center;
@@ -12,9 +14,48 @@ $primary-color: 8e2e6a;
     height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     border: 1px solid gray;
+    margin: 40px 0;
+
+    h1 {
+      background-color: $primary-color;
+      width: 90%;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    button.ui.button {
+      width: 40%;
+      font-size: 1.2rem;
+      padding: 20px;
+      border-radius: 10px;
+      font-family: Lato;
+      margin: 10px 0;
+      background-color: $secondary-color;
+      color: white;
+
+      button.ui.button.login-button {
+        background-color: $highlight-color;
+        color: white;
+
+        &:hover {
+          background-color: white;
+          color: $highlight-color;
+        }
+      }
+
+      button.ui.button.signup-button {
+        background-color: $secondary-color;
+        color: white;
+
+        &:hover {
+          background-color: white;
+          color: $secondary-color;
+        }
+      }
+    }
   }
 
   .login {
@@ -24,9 +65,10 @@ $primary-color: 8e2e6a;
     border: 1px solid gray;
     border-radius: 5px;
     width: 70%;
+    margin: 40px 0;
 
     h1 {
-      background-color: #5421de;
+      background-color: $primary-color;
       width: 90%;
       color: white;
       padding: 20px;
@@ -51,19 +93,24 @@ $primary-color: 8e2e6a;
         font-family: Lato;
         font-size: 14px;
       }
+
+      .create-link {
+        text-decoration: none;
+      }
     }
   }
 
-  .onboarding-basic {
+  div.onboarding-basic {
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid gray;
     border-radius: 5px;
     width: 70%;
+    margin: 40px 0;
 
     h1 {
-      background-color: #5421de;
+      background-color: $primary-color;
       width: 90%;
       color: white;
       padding: 20px;
@@ -71,12 +118,25 @@ $primary-color: 8e2e6a;
     }
 
     input {
+      display: flex;
+      flex-direction: column;
       border-radius: 5px;
       padding: 0 10px;
       margin: 10px 0;
       line-height: 1.5rem;
       font-family: Lato;
       font-size: 14px;
+      text-align: left;
+    }
+    button {
+      background-color: $secondary-color;
+      color: white;
+      padding: 10px;
+      font-family: lato;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      width: 80%;
+      margin: 20px 0;
     }
   }
 }
