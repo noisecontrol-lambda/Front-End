@@ -1,5 +1,4 @@
-const sampleTeacher = [
-  {
+const sampleData = {
     "id": 0,
     "username": "greg",
     "email": "greg@example.com",
@@ -8,9 +7,17 @@ const sampleTeacher = [
     "title": "Mr.",
     "theme": "forest",
     "intake": null,
-    "classes": []
-  },
+    "classes":
+      [
+        {'grade': 'first',
+        'size': 20,
+        'streak': 0},
+        {'grade':'second',
+        'size': 15,
+        'streak': 1}
+      ]
+  }
 
-]
 
-export default sampleTeacher;
+
+export default sampleData;
