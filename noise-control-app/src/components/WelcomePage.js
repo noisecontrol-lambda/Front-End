@@ -5,8 +5,8 @@ const WelcomePage = () => {
   return (
     <Card className="welcome">
       <h1>Welcome to back to Noise Control</h1>
-      <Button className="login-button">Log in</Button>
-      <Button className="signup-button">Create an account</Button>
+      <Button className="login-button">Log in </Button>
+      <Button className="signup-button">Create Account</Button>
     </Card>
   );
 };

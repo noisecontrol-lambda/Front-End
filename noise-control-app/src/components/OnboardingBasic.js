@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "semantic-ui-react";
 
-const OnboardingBasic = () => {
+const OnboardingBasic = props => {
   return (
     <Card className="onboarding-basic">
       <h1>Let's Get Started.</h1>
@@ -11,9 +11,27 @@ const OnboardingBasic = () => {
 
         <input type="text" name="lastName" placeholder="Last name." />
 
-        <input type="email" name="email" placeholder="Email." />
-        <input type="text" name="userName" placeholder="User name." />
-        <input type="password" name="password" placeholder="Set password." />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email."
+          value={props.email}
+          onChange={props.handleChange}
+        />
+        <input
+          type="text"
+          name="userName"
+          placeholder="User name."
+          value={props.userName}
+          onChange={props.handleChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Set password."
+          value={props.password}
+          onChange={props.handleChange}
+        />
         <Button className="onboarding-basic-button">Next: class info</Button>
       </form>
     </Card>

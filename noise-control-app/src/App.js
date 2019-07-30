@@ -1,9 +1,6 @@
 import React from "react";
 import Login from "./components/Login";
-import OnboardingWelcome from "./components/OnboardingWelcome";
-import OnboardingBasic from "./components/OnboardingBasic";
-import OnboardingIntake from "./components/OnboardingIntake";
-import OnboardingPreferences from "./components/OnboardingPreferences";
+import MasterForm from "./components/MasterForm";
 
 import WelcomePage from "./components/WelcomePage";
 
@@ -14,10 +11,7 @@ function App() {
     <div className="App">
       <WelcomePage />
       <Login />
-      <OnboardingWelcome />
-      <OnboardingBasic />
-      <OnboardingIntake />
-      <OnboardingPreferences />
+      <MasterForm />
     </div>
   );
 }
