@@ -5,7 +5,6 @@ const OnboardingWelcome = () => {
   return (
     <Card className="welcome">
       <h1>Welcome to Noise Control</h1>
-      <img className="welcome-image" src="" alt="" />
       <p>
         We help managing your class a breeze so you can focus on keeping their
         attention.

@@ -1,6 +1,7 @@
 $primary-color: #8e2e6a;
 $secondary-color: #311054;
 $highlight-color: #bfcd7e;
+$accent-color: #ee7777;
 
 @mixin button-style {
   width: 80%;
@@ -46,7 +47,7 @@ $highlight-color: #bfcd7e;
   //1.Welcome Page
   div.ui.card.welcome {
     @include card-style;
-    height: 400px;
+    height: 300px;
 
     h1 {
       @include header-style;
@@ -78,7 +79,7 @@ $highlight-color: #bfcd7e;
 
   .login {
     @include card-style;
-    height: 500px;
+    height: 450px;
 
     .create-link {
       text-decoration: none;
@@ -115,6 +116,7 @@ $highlight-color: #bfcd7e;
   //3. Onboarding WelcomePage
   div.ui.card.welcome {
     @include card-style;
+    height: 350px;
 
     h1 {
       @include header-style;
@@ -196,6 +198,11 @@ $highlight-color: #bfcd7e;
 
   div.ui.card.onboarding-preferences {
     @include card-style;
+    height: 400px;
+
+    p {
+      padding: 0 40px;
+    }
 
     form.onboarding-preferences-form {
       margin: 0 40px;
@@ -206,13 +213,47 @@ $highlight-color: #bfcd7e;
 
       button.ui.button.onboarding-preferences-button {
         @include button-style;
+        width: 40%;
       }
 
-      button {
+      button.theme-choice-1 {
+        background-color: $primary-color;
+        color: white;
         width: 100px;
         height: 100px;
-        margin: 20px;
         border-radius: 10px;
+        margin: 10px;
+        font-size: 1.2rem;
+      }
+
+      button.theme-choice-2 {
+        background-color: $secondary-color;
+        color: white;
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        margin: 10px;
+        font-size: 1.2rem;
+      }
+
+      button.theme-choice-3 {
+        background-color: $highlight-color;
+        color: white;
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        margin: 10px;
+        font-size: 1.2rem;
+      }
+
+      button.theme-choice-4 {
+        background-color: $accent-color;
+        color: white;
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        margin: 10px;
+        font-size: 1.2rem;
       }
     }
 

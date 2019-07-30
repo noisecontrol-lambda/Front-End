@@ -7,7 +7,6 @@ const Login = () => {
       <h1>Welcome to back to Noise Control</h1>
       <h3>Log in here to see your classrooms.</h3>
 
-      <img src="./img/ian-parker-JRhVvF5VHG4-unsplash.jpg" alt="" />
       <form className="login-form">
         <input type="email" name="email" placeholder="Email goes here." />
         <input
@@ -21,7 +20,7 @@ const Login = () => {
         Need to create an account?{" "}
         <span>
           Head over{" "}
-          <a href="#" className="create-link">
+          <a href="www.google.com" className="create-link">
             here.
           </a>
         </span>
