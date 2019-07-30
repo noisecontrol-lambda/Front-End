@@ -5,7 +5,8 @@ import OnboardingBasic from "./components/OnboardingBasic";
 import OnboardingIntake from "./components/OnboardingIntake";
 import OnboardingPreferences from "./components/OnboardingPreferences";
 import Class from "./components/Class";
-import sampleData from "./sampleData"
+import sampleData from "./sampleData";
+import { Route } from 'react-router-dom';
 
 import WelcomePage from "./components/WelcomePage";
 
@@ -24,7 +25,11 @@ function App() {
       <OnboardingBasic />
       <OnboardingIntake />
       <OnboardingPreferences />
-      <Class teacher={teacher} />
+      <Route
+        path="/class"
+        render={(props) => <Class {...props} teacher={teacher} />}
+     />
+
     </div>
   );
 }
