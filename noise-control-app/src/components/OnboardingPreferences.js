@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "semantic-ui-react";
 
-const OnboardingPreferences = () => {
+const OnboardingPreferences = props => {
   return (
     <div>
       <Card className="onboarding-preferences">
@@ -10,7 +10,10 @@ const OnboardingPreferences = () => {
           Choose what theme you'd like to start with. You can change this from
           your account at any time.
         </p>
-        <form className="onboarding-preferences-form">
+        <form
+          className="onboarding-preferences-form"
+          onSubmit={props.handleSubmit}
+        >
           <button className="theme-choice-1">Jungle</button>
           <button className="theme-choice-2">Ocean</button>
           <button className="theme-choice-3">Safari</button>

@@ -6,7 +6,7 @@ const OnboardingIntake = props => {
     <Card className="onboarding-intake">
       <h1>Next, tell us about your classes.</h1>
       <p>Enter your class details and they'll show up in your dashboard.</p>
-      <form className="onboarding-intake-form">
+      <form className="onboarding-intake-form" onSubmit={props.handleSubmit}>
         <input
           type="text"
           name="class-name"

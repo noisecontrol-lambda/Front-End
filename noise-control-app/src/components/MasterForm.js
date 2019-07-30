@@ -4,7 +4,10 @@ import OnboardingBasic from "./OnboardingBasic";
 import OnboardingIntake from "./OnboardingIntake";
 import OnboardingPreferences from "./OnboardingPreferences";
 
+// import useForm from "./hooks/useForm";
+
 function MasterForm(props) {
+  // const { values, handleChange, handleSubmit } = useForm();
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -16,6 +19,20 @@ function MasterForm(props) {
     numberKids: "",
     theme: ""
   });
+
+  const nextStep = () => {
+    const { step } = this.state;
+    this.setState({
+      step: step + 1
+    });
+  };
+
+  const prevStep = () => {
+    const { step } = this.state;
+    this.setState({
+      step: step - 1
+    });
+  };
 
   const [teacher, setTeacher] = useState("");
 
