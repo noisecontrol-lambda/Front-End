@@ -7,48 +7,29 @@ function Class (props) {
   props = props.teacher
   const [id, setID] = useState(0)
 
-  function setClass1() {
-    setID(0)
-  }
-  function setClass2() {
-    setID(1)
-  }
-  function setClass3() {
-    setID(2)
-  }
-  function setClass4() {
-    setID(3)
-  }
-
-  const newClass = {
-    'grade': 'Fourth',
-    'size': 3,
-    'streak': 7
-  }
-  function addClass() {
-    props.classes.push(newClass);
+  const classSelector = event => {
+    setID(event.target.value)
   }
 
   const [data, setData] = useState([])
-  console.log('data', data);
+
 
   const [teacher, setTeacher] = useState()
   const [currentClass, setCurrentClass] = useState()
 
   useEffect(() => {
-    axios.get(`https://noise-controller-backend.herokuapp.com/api/teachers`)
+    axios.get(`https://noise-controller-backend.herokuapp.com/api/classes`)
       .then(res => {
-        setData(res.data)
+        setData(res.data[`${id}`])
       })
-  },[])
+  },[id])
 
 
   return (
   <div className="class-page">
-    <Button onClick={setClass1}>Class 1</Button>
-    <Button onClick={setClass2}>Class 2</Button>
-    <Button onClick={setClass3}>Class 3</Button>
-    <Button onClick={setClass4}>Class 4</Button>
+    <Button onClick={classSelector} value='0'>Class 1</Button>
+    <Button onClick={classSelector} value='1'>Class 2</Button>
+    <Button onClick={classSelector} value='2'>Class 3</Button>
     <div className="class-stats-wrapper">
       <div className="class-stats">
         <p>
@@ -65,7 +46,6 @@ function Class (props) {
         </p>
       </div>
     </div>
-    <Button onClick={addClass}>Add Class 4!</Button>
     <Button>Begin Safari!</Button>
   </div>
   )
