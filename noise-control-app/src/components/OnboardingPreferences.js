@@ -1,9 +1,24 @@
 import React from "react";
+import { Card, Button } from "semantic-ui-react";
 
 const OnboardingPreferences = () => {
   return (
     <div>
-      <p>hello</p>
+      <Card className="onboarding-preferences">
+        <h1>Last step - set your theme here.</h1>
+        <p>
+          Choose what theme you'd like to start with. You can change this from
+          your account at any time.
+        </p>
+        <form className="onboarding-preferences-form">
+          <button className="theme-choice">Zebra</button>
+          <button className="theme-choice">Fish</button>
+          <button className="theme-choice">Kangaroo</button>
+          <button className="theme-choice">Whale</button>
+
+          <Button className="onboarding-basic-button">Submit</Button>
+        </form>
+      </Card>
     </div>
   );
 };

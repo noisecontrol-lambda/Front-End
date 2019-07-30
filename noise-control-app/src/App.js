@@ -1,8 +1,11 @@
 import React from "react";
 import Login from "./components/Login";
-import OnboardingBasic from "./components/OnboardingBasic";
-import WelcomePage from "./components/WelcomePage";
 import OnboardingWelcome from "./components/OnboardingWelcome";
+import OnboardingBasic from "./components/OnboardingBasic";
+import OnboardingIntake from "./components/OnboardingIntake";
+import OnboardingPreferences from "./components/OnboardingPreferences";
+
+import WelcomePage from "./components/WelcomePage";
 
 import "./App.scss";
 
@@ -13,6 +16,8 @@ function App() {
       <Login />
       <OnboardingWelcome />
       <OnboardingBasic />
+      <OnboardingIntake />
+      <OnboardingPreferences />
     </div>
   );
 }
