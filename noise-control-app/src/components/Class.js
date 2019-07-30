@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Button } from 'semantic-ui-react'
 
 
 function Class (props) {
   props = props.teacher
   const [id, setID] = useState(0)
-  console.log('classes', props.classes);
+
   function setClass1() {
     setID(0)
   }
@@ -26,8 +27,21 @@ function Class (props) {
   }
   function addClass() {
     props.classes.push(newClass);
-    console.log(props.classes);
   }
+
+  const [data, setData] = useState([])
+  console.log('data', data);
+
+  const [teacher, setTeacher] = useState()
+  const [currentClass, setCurrentClass] = useState()
+
+  useEffect(() => {
+    axios.get(`https://noise-controller-backend.herokuapp.com/api/teachers`)
+      .then(res => {
+        setData(res.data)
+      })
+  },[])
+
 
   return (
   <div className="class-page">
