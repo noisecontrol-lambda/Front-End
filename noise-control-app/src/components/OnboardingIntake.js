@@ -10,8 +10,9 @@ const OnboardingIntake = () => {
         <input type="text" name="class-name" placeholder="Name of class." />
 
         <input type="text" name="grade" placeholder="Grade" />
+        <input type="number" name="class-size" placeholder="Number of kids" />
 
-        <Button className="onboarding-basic-button">
+        <Button className="onboarding-intake-button">
           Next up: preferences
         </Button>
       </form>

@@ -11,12 +11,12 @@ const OnboardingPreferences = () => {
           your account at any time.
         </p>
         <form className="onboarding-preferences-form">
-          <button className="theme-choice">Zebra</button>
-          <button className="theme-choice">Fish</button>
-          <button className="theme-choice">Kangaroo</button>
-          <button className="theme-choice">Whale</button>
+          <button className="theme-choice">Jungle</button>
+          <button className="theme-choice">Ocean</button>
+          <button className="theme-choice">Safari</button>
+          <button className="theme-choice">Mountains</button>
 
-          <Button className="onboarding-basic-button">Submit</Button>
+          <Button className="onboarding-preferences-button">Submit</Button>
         </form>
       </Card>
     </div>

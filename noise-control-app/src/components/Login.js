@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
+import { Card, Button } from "semantic-ui-react";
 
 const Login = () => {
   return (
@@ -15,6 +15,7 @@ const Login = () => {
           name="password"
           placeholder="Type password here."
         />
+        <Button className="login-button">Submit</Button>
       </form>
       <p>
         Need to create an account?{" "}
