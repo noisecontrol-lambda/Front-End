@@ -1,15 +1,15 @@
 import React from "react";
 import Login from "./components/Login";
+import Jungle from "./components/jungle";
 import MasterForm from "./components/MasterForm";
+
 import AuthExample from "./components/AuthExample"
+
 
 import Class from './components/Class';
 import WelcomePage from "./components/WelcomePage";
 
 import "./App.scss";
-
-
-
 
 
 function App() {
@@ -18,6 +18,8 @@ function App() {
       <AuthExample />
       <WelcomePage />
       <Class />
+      <Jungle />
+
     </div>
   );
 }
