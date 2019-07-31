@@ -1,13 +1,9 @@
 import React from "react";
 import Login from "./components/Login";
-import OnboardingWelcome from "./components/OnboardingWelcome";
-import OnboardingBasic from "./components/OnboardingBasic";
-import OnboardingIntake from "./components/OnboardingIntake";
-import OnboardingPreferences from "./components/OnboardingPreferences";
+import MasterForm from "./components/MasterForm";
+import AuthExample from "./components/AuthExample"
+
 import Class from './components/Class';
-import AuthExample from './components/AuthExample'
-
-
 import WelcomePage from "./components/WelcomePage";
 
 import "./App.scss";
@@ -21,11 +17,6 @@ function App() {
     <div className="App">
       <AuthExample />
       <WelcomePage />
-      <Login />
-      <OnboardingWelcome />
-      <OnboardingBasic />
-      <OnboardingIntake />
-      <OnboardingPreferences />
       <Class />
     </div>
   );

@@ -6,7 +6,6 @@ const Login = () => {
     <Card className="login">
       <h1>Welcome to back to Noise Control</h1>
       <h3>Log in here to see your classrooms.</h3>
-
       <form className="login-form">
         <input type="email" name="email" placeholder="Email goes here." />
         <input
