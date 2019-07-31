@@ -11,7 +11,7 @@ const auth = {
         console.log(err);
       })
   },
-  login(user, setTeachers) {
+  login(user, setTeacher) {
     return axios
       .post('https://noise-controller-backend.herokuapp.com/api/teachers/login', user)
       .then(res => {

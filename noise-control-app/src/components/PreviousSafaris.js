@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react'
 import PreviousSafarisCard from "./PreviousSafarisCard"
 
 function PreviousSafaris (props) {
-  console.log('ps', props);
+
 
 
   const [pastSessions, setPastSessions] = useState([])
