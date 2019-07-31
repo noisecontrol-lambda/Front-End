@@ -4,6 +4,7 @@ import OnboardingWelcome from "./components/OnboardingWelcome";
 import OnboardingBasic from "./components/OnboardingBasic";
 import OnboardingIntake from "./components/OnboardingIntake";
 import OnboardingPreferences from "./components/OnboardingPreferences";
+import Jungle from "./components/jungle";
 
 import WelcomePage from "./components/WelcomePage";
 
@@ -18,6 +19,7 @@ function App() {
       <OnboardingBasic />
       <OnboardingIntake />
       <OnboardingPreferences />
+      <Jungle />
     </div>
   );
 }
