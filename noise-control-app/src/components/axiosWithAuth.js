@@ -11,7 +11,7 @@ const axiosWithAuth = {
     return axios.put(url, data, { headers: { authorization: localStorage.getItem('userToken') } });
   },
   delete(url) {
-    return axios.put(url, { headers: { authorization: localStorage.getItem('userToken') }});
+    return axios.delete(url, { headers: { authorization: localStorage.getItem('userToken') }});
   }
 };
 
