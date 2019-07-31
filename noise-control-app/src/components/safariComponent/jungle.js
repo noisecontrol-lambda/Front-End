@@ -5,7 +5,7 @@ export default function Jungle () {
 
     return (
       <div className='jungle-container'>
-       <img src={CartoonJungle} alt='cartoon jungle' />
+       <img className='jungle-picture' src={CartoonJungle} alt='cartoon jungle' />
     </div>
     )
   } 
