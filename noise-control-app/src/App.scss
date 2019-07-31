@@ -262,3 +262,42 @@ $accent-color: #ee7777;
     }
   }
 }
+
+.class-page {
+  border: 10px solid $highlight-color;
+  background: $accent-color;
+  width: 500px;
+  padding: 5px;
+}
+
+.class-stats-wrapper {
+  border: 10px solid $primary-color;
+  background-color: $secondary-color;
+  margin: 20px 50px;
+  border-radius: 10px;
+}
+
+.class-page p {
+  font-size: 20px;
+  color: white;
+}
+
+.class-stats {
+  display: block;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+}
+
+.class-buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.score-card {
+  border: 5px solid white;
+  border-radius: 10px;
+  margin: 20px 15px;
+  padding: 10px;
+}
