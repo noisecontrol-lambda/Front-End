@@ -4,10 +4,7 @@ import OnboardingBasic from "./OnboardingBasic";
 import OnboardingIntake from "./OnboardingIntake";
 import OnboardingPreferences from "./OnboardingPreferences";
 
-
-
 function MasterForm(props) {
-
   const [data, setData] = useState({
     step: 1,
     firstName: "",
@@ -21,17 +18,15 @@ function MasterForm(props) {
     theme: ""
   });
 
-const [steps, setSteps] = useState(0);
+  const [steps, setSteps] = useState(0);
 
-  function nextStep () {
-    setSteps(steps => steps + 1)
-  };
+  function nextStep() {
+    setSteps(steps => steps + 1);
+  }
 
-function prevStep() {
-  setSteps(steps => steps -1)
-};
-
-  const [teacher, setTeacher] = useState("");
+  function prevStep() {
+    setSteps(steps => steps - 1);
+  }
 
   const handleChange = event => {
     const updatedData = { ...data, [event.target.name]: event.target.value };
@@ -44,41 +39,56 @@ function prevStep() {
     console.log(data);
   };
 
-  return (
-    <div className="master-form">
-      switch(step) {
-              case 1:
-                  return <OnboardingWelcome
-                          nextStep={nextStep}
-                          handleChange = {handleChange}
-                          />
-              case 2:
-                  return <OnboardingBasic
-                          nextStep={nextStep}
-                          prevStep={prevStep}
-                          handleChange = {handleChange}
-                          firstName={firstName}
-                          lastName={lastName}
-                          userName={userName}
-                          email={email}
-                          password={password}
-                          />
-              case 3:
-                  return <OnboardingIntake
-                          nextStep={nextStep}
-                          prevStep={prevStep}
-                          nameOfClass={nameOfClass}
-                          grade={grade}
-                          numberKids={numberKids}
-                          />
-              case 4:
-                  return <OnboardingPreferences
-                    nextStep={nextStep}
-                    prevStep={prevStep}
-                    theme={theme} />
-              }
-    </div>
-  );
+  function wizard(step) {
+    switch (step) {
+      default:
+        return (
+          <OnboardingWelcome nextStep={nextStep} handleChange={handleChange} />
+        );
+      case 1:
+        return (
+          <OnboardingWelcome nextStep={nextStep} handleChange={handleChange} />
+        );
+      case 2:
+        return (
+          <OnboardingBasic
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            firstName={data.firstName}
+            lastName={data.lastName}
+            userName={data.userName}
+            email={data.email}
+            password={data.password}
+          />
+        );
+      case 3:
+        return (
+          <OnboardingIntake
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            nameOfClass={data.nameOfClass}
+            grade={data.grade}
+            numberKids={data.numberKids}
+          />
+        );
+      case 4:
+        return (
+          <OnboardingPreferences
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            theme={data.theme}
+          />
+        );
+    }
+  }
+
+  return <div className="master-form">{wizard()}</div>;
 }
 
 export default MasterForm;
