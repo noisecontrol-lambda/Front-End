@@ -13,6 +13,7 @@ const Login = () => {
           name="password"
           placeholder="Type password here."
         />
+        {/* Pass auth.login here; teachers needs to be available here*/}
         <Button className="login-button">Submit</Button>
       </form>
       <p>
