@@ -7,32 +7,27 @@ import PreviousSafaris from './PreviousSafaris'
 
 
 function Class (props) {
-  props = props.teacher
+
   const [id, setID] = useState(0)
-
+  const [classInfo, setClassInfo] = useState([])
   const [classes, setClasses] = useState([])
-
 
   const classSelector = event => {
     setID(event.target.value)
 
   }
 
-  const [data, setData] = useState([])
-
   useEffect(() => {
     axiosWithAuth
       .get(`https://noise-controller-backend.herokuapp.com/api/classes`)
       .then(res => {
-
         setClasses(res.data)
-        setData(res.data[`${id}`])
+        setClassInfo(res.data[`${id}`])
       })
       .catch(err => {
         console.log(err);
       })
   },[id])
-
 
   return (
     <div>
@@ -49,9 +44,9 @@ function Class (props) {
         </div>
           <div className="class-stats-wrapper">
             <div className="class-stats">
-              <p>Class : {data.name}</p>
-              <p>Class Size : {data.numberOfKids}</p>
-              <p>Current Streak : {data.streak}</p>
+              <p>Class : {classInfo.name}</p>
+              <p>Class Size : {classInfo.numberOfKids}</p>
+              <p>Current Streak : {classInfo.streak}</p>
             </div>
           </div>
           <div className="class-buttons">

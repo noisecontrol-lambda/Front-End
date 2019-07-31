@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axiosWithAuth from '../axiosWithAuth';
+import { Button } from 'semantic-ui-react'
 import PreviousSafarisCard from "./PreviousSafarisCard"
 
 function PreviousSafaris (props) {
-  console.log('prevsaf props', props);
+
 
   const [pastSessions, setPastSessions] = useState([])
-  console.log('pastSessions', pastSessions);
+
   const [className, setClassName] = useState()
 
   useEffect (() => {
@@ -34,6 +35,7 @@ function PreviousSafaris (props) {
           )}
         </div>
       </div>
+      <Button>Back to class!</Button>
     </div>
   )
 }
