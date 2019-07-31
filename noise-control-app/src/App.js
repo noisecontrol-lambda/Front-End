@@ -5,7 +5,7 @@ import OnboardingBasic from "./components/OnboardingBasic";
 import OnboardingIntake from "./components/OnboardingIntake";
 import OnboardingPreferences from "./components/OnboardingPreferences";
 import Class from './components/Class';
-
+import AuthExample from './components/AuthExample'
 
 
 import WelcomePage from "./components/WelcomePage";
@@ -19,6 +19,7 @@ import "./App.scss";
 function App() {
   return (
     <div className="App">
+      <AuthExample />
       <WelcomePage />
       <Login />
       <OnboardingWelcome />
