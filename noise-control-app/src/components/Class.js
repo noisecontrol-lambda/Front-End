@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import axiosWithAuth from '../axiosWithAuth';
 import { Button } from 'semantic-ui-react'
 import ClassButton from './ClassButton'
 
@@ -20,10 +21,14 @@ function Class (props) {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    axios.get(`https://noise-controller-backend.herokuapp.com/api/classes`)
+    axiosWithAuth
+      .get(`https://noise-controller-backend.herokuapp.com/api/classes`)
       .then(res => {
         setClasses(res.data)
         setData(res.data[`${id}`])
+      })
+      .catch(err => {
+        console.log(err);
       })
   },[id])
 
