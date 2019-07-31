@@ -23,6 +23,7 @@ function Class (props) {
     axiosWithAuth
       .get(`https://noise-controller-backend.herokuapp.com/api/classes`)
       .then(res => {
+        console.log(res.data);
         setClasses(res.data)
         setData(res.data[`${id}`])
       })
@@ -33,16 +34,18 @@ function Class (props) {
 
   return (
     <div className="class-page">
-      { classes.map((iClass, i) =>
-        <ClassButton
-          key={i}
-          name={iClass.name}
-          onClick={classSelector}
-          value={`${i}`}
-        />)}
+      <p>Welcome back teacher.name!</p>
+      <div className="class-buttons">
+        { classes.map((iClass, i) =>
+          <ClassButton
+            key={i}
+            name={iClass.name}
+            onClick={classSelector}
+            value={`${i}`}
+          />)}
+      </div>
         <div className="class-stats-wrapper">
           <div className="class-stats">
-            <p>Welcome back Teacher name from login!</p>
             <p>Class : {data.name}</p>
             <p>Class Size : {data.numberOfKids}</p>
             <p>Current Streak : {data.streak}</p>
