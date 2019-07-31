@@ -1,7 +1,8 @@
 import React from "react";
 import Login from "./components/Login";
-import Jungle from "./components/jungle";
+import Jungle from "./components/safariComponent/jungle";
 import MasterForm from "./components/MasterForm";
+import Ocean from "../src/components/safariComponent/ocean"
 
 import AuthExample from "./components/AuthExample"
 
@@ -19,6 +20,7 @@ function App() {
       <WelcomePage />
       <Class />
       <Jungle />
+      <Ocean />
 
     </div>
   );
