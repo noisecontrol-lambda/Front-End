@@ -2,6 +2,16 @@ import React from "react";
 import { Card, Button } from "semantic-ui-react";
 
 const OnboardingIntake = props => {
+  const saveAndContinue = event => {
+    event.preventDefault();
+    props.nextStep();
+  };
+
+  const back = event => {
+    event.preventDefault();
+    props.prevStep();
+  };
+
   return (
     <Card className="onboarding-intake">
       <h1>Next, tell us about your classes.</h1>
@@ -29,9 +39,11 @@ const OnboardingIntake = props => {
           value={props.numberKids}
           onChange={props.handleChange}
         />
-
-        <Button className="onboarding-intake-button">
-          Next up: preferences
+        <Button className="back-basic-button" onClick={back}>
+          Back
+        </Button>
+        <Button className="onboarding-intake-button" onClick={saveAndContinue}>
+          > Next up: preferences
         </Button>
       </form>
     </Card>
