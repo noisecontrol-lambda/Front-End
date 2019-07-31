@@ -2,6 +2,13 @@ import React from "react";
 import { Card, Button } from "semantic-ui-react";
 
 const Login = () => {
+  // const submitHandler = event => {
+  //   event.preventDefault();
+  //   props.login(user, loginHandler);
+  //   // then have some code to redirect to wherever you want them to go after login, don't worry about error handling yet until this works
+  // };
+  // onSubmit={event => submitHandler}
+
   return (
     <Card className="login">
       <h1>Welcome to back to Noise Control</h1>

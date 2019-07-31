@@ -1,8 +1,6 @@
 import React from "react";
 import { Card, Button } from "semantic-ui-react";
-import { Link, Route } from "react-router-dom";
-import MasterForm from "./MasterForm";
-import Login from "./Login";
+import { Link } from "react-router-dom";
 
 const WelcomePage = () => {
   return (
@@ -12,13 +10,9 @@ const WelcomePage = () => {
         <Button className="login-button">Log in </Button>
       </Link>
 
-      <Link to="./OnboardingWelcome">
+      <Link to="./onboarding/welcome">
         <Button className="signup-button">Create Account</Button>
       </Link>
-      <div>
-        <Route path="/login" component={Login} />
-        <Route path="/onboarding/welcome" component={MasterForm} />
-      </div>
     </Card>
   );
 };

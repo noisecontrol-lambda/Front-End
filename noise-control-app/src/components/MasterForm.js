@@ -6,7 +6,6 @@ import OnboardingPreferences from "./OnboardingPreferences";
 
 function MasterForm(props) {
   const [data, setData] = useState({
-    step: 1,
     firstName: "",
     lastName: "",
     email: "",
@@ -18,7 +17,7 @@ function MasterForm(props) {
     theme: ""
   });
 
-  const [steps, setSteps] = useState(0);
+  const [steps, setSteps] = useState(1);
 
   function nextStep() {
     setSteps(steps => steps + 1);
@@ -39,12 +38,8 @@ function MasterForm(props) {
     console.log(data);
   };
 
-  function wizard(step) {
-    switch (step) {
-      default:
-        return (
-          <OnboardingWelcome nextStep={nextStep} handleChange={handleChange} />
-        );
+  function wizard() {
+    switch (steps) {
       case 1:
         return (
           <OnboardingWelcome nextStep={nextStep} handleChange={handleChange} />
@@ -84,6 +79,10 @@ function MasterForm(props) {
             handleSubmit={handleSubmit}
             theme={data.theme}
           />
+        );
+      default:
+        return (
+          <OnboardingWelcome nextStep={nextStep} handleChange={handleChange} />
         );
     }
   }

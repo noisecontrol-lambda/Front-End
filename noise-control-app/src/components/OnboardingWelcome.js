@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "semantic-ui-react";
+import MasterForm from "./MasterForm";
 
 const OnboardingWelcome = props => {
   const saveAndContinue = event => {
