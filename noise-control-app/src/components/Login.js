@@ -2,12 +2,11 @@ import React from "react";
 import { Card, Button } from "semantic-ui-react";
 
 const Login = () => {
-  // const submitHandler = event => {
-  //   event.preventDefault();
-  //   props.login(user, loginHandler);
-  //   // then have some code to redirect to wherever you want them to go after login, don't worry about error handling yet until this works
-  // };
-  // onSubmit={event => submitHandler}
+  const submitHandler = event => {
+    event.preventDefault();
+    props.login(user, loginHandler);
+    // then have some code to redirect to wherever you want them to go after login, don't worry about error handling yet until this works
+  };
 
   return (
     <Card className="login">
@@ -20,7 +19,9 @@ const Login = () => {
           name="password"
           placeholder="Type password here."
         />
-        <Button className="login-button">Submit</Button>
+        <Button className="login-button" onSubmit={event => submitHandler}>
+          Submit
+        </Button>
       </form>
       <p>
         Need to create an account?{" "}

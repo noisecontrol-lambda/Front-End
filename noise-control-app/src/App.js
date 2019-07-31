@@ -14,10 +14,6 @@ import "./App.scss";
 function App() {
   const [teacher, setTeachers] = useState([]);
 
-  const auth = (
-    login={login},
-  );
-
   return (
     <div className="App">
       <Route exact path="/" component={WelcomePage} />
