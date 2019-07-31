@@ -4,11 +4,12 @@ import OnboardingBasic from "./OnboardingBasic";
 import OnboardingIntake from "./OnboardingIntake";
 import OnboardingPreferences from "./OnboardingPreferences";
 
-// import useForm from "./hooks/useForm";
+
 
 function MasterForm(props) {
-  // const { values, handleChange, handleSubmit } = useForm();
+
   const [data, setData] = useState({
+    step: 1,
     firstName: "",
     lastName: "",
     email: "",
@@ -20,19 +21,15 @@ function MasterForm(props) {
     theme: ""
   });
 
-  const nextStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step + 1
-    });
+const [steps, setSteps] = useState(0);
+
+  function nextStep () {
+    setSteps(steps => steps + 1)
   };
 
-  const prevStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step - 1
-    });
-  };
+function prevStep() {
+  setSteps(steps => steps -1)
+};
 
   const [teacher, setTeacher] = useState("");
 
@@ -49,10 +46,37 @@ function MasterForm(props) {
 
   return (
     <div className="master-form">
-      <OnboardingWelcome />
-      <OnboardingBasic />
-      <OnboardingIntake />
-      <OnboardingPreferences />
+      switch(step) {
+              case 1:
+                  return <OnboardingWelcome
+                          nextStep={nextStep}
+                          handleChange = {handleChange}
+                          />
+              case 2:
+                  return <OnboardingBasic
+                          nextStep={nextStep}
+                          prevStep={prevStep}
+                          handleChange = {handleChange}
+                          firstName={firstName}
+                          lastName={lastName}
+                          userName={userName}
+                          email={email}
+                          password={password}
+                          />
+              case 3:
+                  return <OnboardingIntake
+                          nextStep={nextStep}
+                          prevStep={prevStep}
+                          nameOfClass={nameOfClass}
+                          grade={grade}
+                          numberKids={numberKids}
+                          />
+              case 4:
+                  return <OnboardingPreferences
+                    nextStep={nextStep}
+                    prevStep={prevStep}
+                    theme={theme} />
+              }
     </div>
   );
 }
