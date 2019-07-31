@@ -4,10 +4,7 @@ import OnboardingBasic from "./OnboardingBasic";
 import OnboardingIntake from "./OnboardingIntake";
 import OnboardingPreferences from "./OnboardingPreferences";
 
-// import useForm from "./hooks/useForm";
-
 function MasterForm(props) {
-  // const { values, handleChange, handleSubmit } = useForm();
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -20,21 +17,15 @@ function MasterForm(props) {
     theme: ""
   });
 
-  const nextStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step + 1
-    });
-  };
+  const [steps, setSteps] = useState(1);
 
-  const prevStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step - 1
-    });
-  };
+  function nextStep() {
+    setSteps(steps => steps + 1);
+  }
 
-  const [teacher, setTeacher] = useState("");
+  function prevStep() {
+    setSteps(steps => steps - 1);
+  }
 
   const handleChange = event => {
     const updatedData = { ...data, [event.target.name]: event.target.value };
@@ -47,14 +38,56 @@ function MasterForm(props) {
     console.log(data);
   };
 
-  return (
-    <div className="master-form">
-      <OnboardingWelcome />
-      <OnboardingBasic />
-      <OnboardingIntake />
-      <OnboardingPreferences />
-    </div>
-  );
+  function wizard() {
+    switch (steps) {
+      case 1:
+        return (
+          <OnboardingWelcome nextStep={nextStep} handleChange={handleChange} />
+        );
+      case 2:
+        return (
+          <OnboardingBasic
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            firstName={data.firstName}
+            lastName={data.lastName}
+            userName={data.userName}
+            email={data.email}
+            password={data.password}
+          />
+        );
+      case 3:
+        return (
+          <OnboardingIntake
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            nameOfClass={data.nameOfClass}
+            grade={data.grade}
+            numberKids={data.numberKids}
+          />
+        );
+      case 4:
+        return (
+          <OnboardingPreferences
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            theme={data.theme}
+          />
+        );
+      default:
+        return (
+          <OnboardingWelcome nextStep={nextStep} handleChange={handleChange} />
+        );
+    }
+  }
+
+  return <div className="master-form">{wizard()}</div>;
 }
 
 export default MasterForm;
