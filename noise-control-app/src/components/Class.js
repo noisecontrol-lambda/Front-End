@@ -9,12 +9,11 @@ function Class (props) {
   const [id, setID] = useState(0)
 
   const [classes, setClasses] = useState([])
-
+  console.log(classes);
 
   const classSelector = event => {
     setID(event.target.value)
     console.log(id);
-
   }
 
   const [data, setData] = useState([])
@@ -27,7 +26,6 @@ function Class (props) {
       })
   },[id])
 
-
   return (
     <div className="class-page">
       { classes.map((iClass, i) =>
@@ -39,18 +37,10 @@ function Class (props) {
         />)}
         <div className="class-stats-wrapper">
           <div className="class-stats">
-            <p>
-              Welcome back {props.title} {props.lastName}!
-            </p>
-            <p>
-              Class Grade : {data.grade}
-            </p>
-            <p>
-              Class Size : {data.numberOfKids}
-            </p>
-            <p>
-              Current Streak : {data.streak}
-            </p>
+            <p>Welcome back Teacher name from login!</p>
+            <p>Class : {data.name}</p>
+            <p>Class Size : {data.numberOfKids}</p>
+            <p>Current Streak : {data.streak}</p>
           </div>
         </div>
         <Button>Begin Safari!</Button>

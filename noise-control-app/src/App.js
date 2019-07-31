@@ -5,7 +5,7 @@ import OnboardingBasic from "./components/OnboardingBasic";
 import OnboardingIntake from "./components/OnboardingIntake";
 import OnboardingPreferences from "./components/OnboardingPreferences";
 import Class from './components/Class';
-import sampleData from './sampleData';
+
 
 
 import WelcomePage from "./components/WelcomePage";
@@ -13,7 +13,6 @@ import WelcomePage from "./components/WelcomePage";
 import "./App.scss";
 
 
-const teacher = sampleData;
 
 
 
@@ -26,7 +25,7 @@ function App() {
       <OnboardingBasic />
       <OnboardingIntake />
       <OnboardingPreferences />
-      <Class teacher={teacher}/>
+      <Class />
     </div>
   );
 }
