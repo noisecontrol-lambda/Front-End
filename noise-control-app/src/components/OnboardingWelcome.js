@@ -1,7 +1,13 @@
 import React from "react";
 import { Card, Button } from "semantic-ui-react";
+import MasterForm from "./MasterForm";
 
-const OnboardingWelcome = () => {
+const OnboardingWelcome = props => {
+  const saveAndContinue = event => {
+    event.preventDefault();
+    props.nextStep();
+  };
+
   return (
     <Card className="welcome">
       <h1>Welcome to Noise Control</h1>
@@ -9,7 +15,9 @@ const OnboardingWelcome = () => {
         We help managing your class a breeze so you can focus on keeping their
         attention.
       </p>
-      <Button className="welcome-button">Let's Go!</Button>
+      <Button className="welcome-button" onClick={saveAndContinue}>
+        Let's Go!
+      </Button>
     </Card>
   );
 };

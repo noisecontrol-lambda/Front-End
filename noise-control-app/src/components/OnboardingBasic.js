@@ -2,6 +2,11 @@ import React from "react";
 import { Card, Button } from "semantic-ui-react";
 
 const OnboardingBasic = props => {
+  const saveAndContinue = event => {
+    event.preventDefault();
+    props.nextStep();
+  };
+
   return (
     <Card className="onboarding-basic">
       <h1>Let's Get Started.</h1>
@@ -44,7 +49,9 @@ const OnboardingBasic = props => {
           onChange={props.handleChange}
           value={props.password}
         />
-        <Button className="onboarding-basic-button">Next: class info</Button>
+        <Button className="onboarding-basic-button" onClick={saveAndContinue}>
+          Next: class info
+        </Button>
       </form>
     </Card>
   );

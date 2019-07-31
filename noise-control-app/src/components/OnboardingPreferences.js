@@ -2,6 +2,16 @@ import React from "react";
 import { Card, Button } from "semantic-ui-react";
 
 const OnboardingPreferences = props => {
+  const saveAndContinue = event => {
+    event.preventDefault();
+    props.nextStep();
+  };
+
+  const back = event => {
+    event.preventDefault();
+    props.prevStep();
+  };
+
   return (
     <div>
       <Card className="onboarding-preferences">
@@ -19,7 +29,15 @@ const OnboardingPreferences = props => {
           <button className="theme-choice-3">Safari</button>
           <button className="theme-choice-4">Mountains</button>
 
-          <Button className="onboarding-preferences-button">Submit</Button>
+          <Button className="back-intake-button" onClick={back}>
+            Back
+          </Button>
+          <Button
+            className="onboarding-preferences-button"
+            onClick={saveAndContinue}
+          >
+            Submit
+          </Button>
         </form>
       </Card>
     </div>
