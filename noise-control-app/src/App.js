@@ -1,32 +1,25 @@
 import React from "react";
 import Login from "./components/Login";
-<<<<<<< HEAD
-import OnboardingWelcome from "./components/OnboardingWelcome";
-import OnboardingBasic from "./components/OnboardingBasic";
-import OnboardingIntake from "./components/OnboardingIntake";
-import OnboardingPreferences from "./components/OnboardingPreferences";
 import Jungle from "./components/jungle";
-=======
 import MasterForm from "./components/MasterForm";
->>>>>>> b5b2582a832797c164dafdefa55d55caf6fc72d1
 
+import AuthExample from "./components/AuthExample"
+
+
+import Class from './components/Class';
 import WelcomePage from "./components/WelcomePage";
 
 import "./App.scss";
 
+
 function App() {
   return (
     <div className="App">
+      <AuthExample />
       <WelcomePage />
-<<<<<<< HEAD
-      <Login />
-      <OnboardingWelcome />
-      <OnboardingBasic />
-      <OnboardingIntake />
-      <OnboardingPreferences />
+      <Class />
       <Jungle />
-=======
->>>>>>> b5b2582a832797c164dafdefa55d55caf6fc72d1
+
     </div>
   );
 }
