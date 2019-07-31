@@ -21,11 +21,12 @@ function App() {
 
   return (
     <div className="App">
-      
+
       <AuthExample />
       <WelcomePage />
       <Class />
       <Jungle />
+      
 
     </div>
   );
