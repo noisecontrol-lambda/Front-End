@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // import axios from "axios";
-import axiosWithAuth from '../axiosWithAuth';
+// import axiosWithAuth from '../axiosWithAuth';
 import { Button } from 'semantic-ui-react'
 import ClassButton from './ClassButton'
 import { Link } from 'react-router-dom';
 
 function Class (props) {
   const teachersList = props.teachers[0];
+  console.log(props);
   console.log('teachersList', teachersList);
   const [id, setID] = useState(0)
   const [classInfo, setClassInfo] = useState([0])
