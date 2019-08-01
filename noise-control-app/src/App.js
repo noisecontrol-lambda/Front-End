@@ -16,9 +16,10 @@ import auth from "./authentication";
 import "./App.scss";
 
 function App() {
-  const [teacher, setTeachers] = useState([]);
+  const [teacher, setTeacher] = useState();
+  console.log('teacher', teacher);
 
-  console.log(auth);
+
 
   return (
     <div className="App">
@@ -27,7 +28,7 @@ function App() {
         exact
         path="/login"
         render={props => (
-          <Login {...props} login={auth.login} loginHandler={setTeachers} />
+          <Login {...props} login={auth.login} loginHandler={setTeacher} />
         )}
       />
       <Route exact path="/onboarding/welcome" component={MasterForm} />
@@ -39,10 +40,12 @@ function App() {
         component={OnboardingPreferences}
       />
 
-      <AuthExample />
+      <AuthExample setTeacher={setTeacher} />
       <WelcomePage />
       <Class />
       <Jungle />
+
+
     </div>
   );
 }
