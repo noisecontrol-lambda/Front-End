@@ -20,11 +20,14 @@ const Login = (props) => {
     
     event.preventDefault();
     // props.login(user, props.loginHandler);
-    try {
-      await props.login(user, props.loginHandler);
-    } catch (error) {
-      console.log(error);
-    }
+
+    props.login(user, props.loginHandler)
+      .then(() => {
+        console.log('then');
+      })
+      .catch(error => {
+        console.log(error);
+      });
     // then have some code to redirect to wherever you want them to go after login, don't worry about error handling yet until this works
   };
 
