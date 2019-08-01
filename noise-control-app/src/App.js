@@ -1,8 +1,8 @@
+import AuthExample from "./components/AuthExample"
 import React, { useState } from "react";
-
-import AuthExample from "./components/AuthExample";
 import Class from "./components/Class";
-import Jungle from "./components/jungle";
+import Jungle from "../src/components/safariComponent/jungle";
+import Ocean from "../src/components/safariComponent/ocean"
 import WelcomePage from "./components/WelcomePage";
 import { Route } from "react-router-dom";
 import Login from "./components/Login";
@@ -44,7 +44,7 @@ function App() {
       <WelcomePage />
       <Class />
       <Jungle />
-
+      <Ocean />
 
     </div>
   );

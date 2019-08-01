@@ -301,3 +301,27 @@ $accent-color: #ee7777;
   margin: 20px 15px;
   padding: 10px;
 }
+
+.ocean-container {
+  display: flex; 
+  justify-content: center; 
+  
+    .ocean-picture {
+      width: 70%; 
+      margin: 15px;
+      border: 10px solid $secondary-color; 
+
+    }
+}
+
+.jungle-container {
+  display: flex; 
+  justify-content: center; 
+  
+    .jungle-picture {
+      display: flex; 
+      width: 70%; 
+      margin: 15px; 
+      border: 10px solid $secondary-color; 
+    }
+}
