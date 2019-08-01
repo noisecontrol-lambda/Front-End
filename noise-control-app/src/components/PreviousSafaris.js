@@ -6,8 +6,8 @@ import PreviousSafarisCard from "./PreviousSafarisCard"
 function PreviousSafaris (props) {
 
 
-  const [pastSessions, setPastSessions] = useState([])
 
+  const [pastSessions, setPastSessions] = useState([])
   const [className, setClassName] = useState()
 
   useEffect (() => {
