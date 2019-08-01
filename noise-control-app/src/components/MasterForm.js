@@ -30,13 +30,20 @@ function MasterForm(props) {
 
   const handleChange = event => {
     const updatedData = { ...data, [event.target.name]: event.target.value };
+    console.log(
+      "handle change",
+      event.target.name,
+      event.target.value,
+      "updated data",
+      updatedData
+    )
     setData(updatedData);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
     props.setTeacher([...props.teacher, data]);
-    console.log(data);
+    console.log('data', data);
   };
 
   function wizard() {
