@@ -13,7 +13,7 @@ function MasterForm(props) {
     password: "",
     className: "",
     grade: "",
-    numberKids: "",
+    kidsNumber: "",
     theme: ""
   });
 
@@ -74,7 +74,7 @@ function MasterForm(props) {
             handleSubmit={handleSubmit}
             nameOfClass={data.nameOfClass}
             grade={data.grade}
-            numberKids={data.numberKids}
+            kidsNumber={data.kidsNumber}
           />
         );
       case 4:

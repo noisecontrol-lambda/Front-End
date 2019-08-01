@@ -1,8 +1,8 @@
-import AuthExample from "./components/AuthExample"
+import AuthExample from "./components/AuthExample";
 import React, { useState } from "react";
 import Class from "./components/Class";
 import Jungle from "../src/components/safariComponent/jungle";
-import Ocean from "../src/components/safariComponent/ocean"
+import Ocean from "../src/components/safariComponent/ocean";
 import WelcomePage from "./components/WelcomePage";
 import { Route } from "react-router-dom";
 import Login from "./components/Login";
@@ -27,7 +27,12 @@ function App() {
         exact
         path="/login"
         render={props => (
-          <Login {...props} teachers={teachers} login={auth.login} loginHandler={setTeachers} />
+          <Login
+            {...props}
+            teachers={teachers}
+            login={auth.login}
+            loginHandler={setTeacher}
+          />
         )}
       />
       <Route exact path="/onboarding/welcome" component={MasterForm} />
@@ -45,7 +50,6 @@ function App() {
       <Class />
       <Jungle />
       <Ocean />
-
     </div>
   );
 }
