@@ -17,10 +17,17 @@ function Class (props) {
   const classSelector = event => {
     setID(event.target.value)
   }
-
   if (currentTeacher === undefined) {
     return null
   }
+  if (currentTeacher.classes === undefined) {
+    return null
+  }
+  const tClasses = currentTeacher.classes;
+  console.log('tclasses', tClasses);
+  console.log(tClasses[0]);
+  // setClasses(tClasses)
+
 
 
   return (
