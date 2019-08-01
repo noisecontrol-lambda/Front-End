@@ -17,9 +17,7 @@ import "./App.scss";
 
 function App() {
   const [teacher, setTeacher] = useState();
-  console.log('teacher', teacher);
-
-
+  console.log("teacher", teacher);
 
   return (
     <div className="App">
@@ -28,7 +26,12 @@ function App() {
         exact
         path="/login"
         render={props => (
-          <Login {...props} teachers={teacher} login={auth.login} loginHandler={setTeacher} />
+          <Login
+            {...props}
+            teachers={teacher}
+            login={auth.login}
+            loginHandler={setTeacher}
+          />
         )}
       />
       <Route exact path="/onboarding/welcome" component={MasterForm} />
@@ -44,8 +47,6 @@ function App() {
       <WelcomePage />
       <Class />
       <Jungle />
-
-
     </div>
   );
 }
