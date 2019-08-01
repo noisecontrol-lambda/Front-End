@@ -11,13 +11,14 @@ import MasterForm from "./components/MasterForm";
 import OnboardingBasic from "./components/OnboardingBasic";
 import OnboardingIntake from "./components/OnboardingIntake";
 import OnboardingPreferences from "./components/OnboardingPreferences";
+import PrivateRoute from "./components/PrivateRoute";
+import axiosWithAuth from "./axiosWithAuth";
 import auth from "./authentication";
 import PreviousSafaris from "./components/PreviousSafaris"
-import axiosWithAuth from './axiosWithAuth';
 
 import "./App.scss";
 
-function App() {
+function App(props) {
   const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
@@ -53,15 +54,16 @@ function App() {
         exact path="/onboarding/preferences"
         component={OnboardingPreferences}
       />
-      <Route exact path="/class/"
-      render={props => (<Class {...props} teachers={teachers} />)} />
-      <Route exact path="/class/previoussafaris"
-      render={props => (<Class {...props} teachers={teachers} />)} />
+      <PrivateRoute exact path="/class/"
+      component={props => (
+        <Class {...props} teachers={teachers} />
+      )} />
+      <PrivateRoute exact path="/class/previoussafaris" component={PreviousSafaris} />
 
-      <AuthExample setTeacher={setTeachers} />
-      <WelcomePage />
-      <Jungle />
-      <Ocean />
+      {/* <AuthExample setTeacher={setTeachers} /> */}
+      {/* <WelcomePage /> */}
+      {/* <Jungle /> */}
+      {/* <Ocean /> */}
     </div>
   );
 }
