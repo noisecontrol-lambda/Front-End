@@ -41,13 +41,21 @@ function App(props) {
         render={props => (
           <Login
             {...props}
-            teachers={teachers}
+
+            teacher={teacher}
+
             login={auth.login}
             loginHandler={setTeachers}
           />
         )}
       />
-      <Route exact path="/onboarding/welcome" component={MasterForm} />
+      <Route
+        exact
+        path="/onboarding/welcome"
+        render={props => (
+          <MasterForm teacher={teacher} setTeacher={setTeacher} />
+        )}
+      />
       <Route exact path="/onboarding/basic" component={OnboardingBasic} />
       <Route exact path="/onboarding/intake" component={OnboardingIntake} />
       <Route
