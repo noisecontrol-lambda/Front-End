@@ -9,7 +9,6 @@ function MasterForm(props) {
     firstName: "",
     lastName: "",
     email: "",
-    userName: "",
     password: "",
     className: "",
     grade: "",
@@ -61,7 +60,6 @@ function MasterForm(props) {
             handleSubmit={handleSubmit}
             firstName={data.firstName}
             lastName={data.lastName}
-            userName={data.userName}
             email={data.email}
             password={data.password}
           />
