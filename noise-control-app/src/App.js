@@ -28,7 +28,7 @@ function App() {
         exact
         path="/login"
         render={props => (
-          <Login {...props} login={auth.login} loginHandler={setTeacher} />
+          <Login {...props} teachers={teacher} login={auth.login} loginHandler={setTeacher} />
         )}
       />
       <Route exact path="/onboarding/welcome" component={MasterForm} />

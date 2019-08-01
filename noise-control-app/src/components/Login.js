@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, Button } from "semantic-ui-react";
 
 const Login = (props) => {
-
+  console.log('users data', props.teachers);
 
   const [user, setUser] = useState({ email: "", password: "" });
 
@@ -16,12 +16,15 @@ const Login = (props) => {
     console.log('user', user);
   }
 
-  const submitHandler = event => {
+  const submitHandler = async event => {
+    
     event.preventDefault();
     // props.login(user, props.loginHandler);
-    props.login(user, props.loginHandler(user));
-
-    alert("user state", user)
+    try {
+      await props.login(user, props.loginHandler);
+    } catch (error) {
+      console.log(error);
+    }
     // then have some code to redirect to wherever you want them to go after login, don't worry about error handling yet until this works
   };
 
