@@ -21,7 +21,7 @@ const Login = props => {
 
   const submitHandler = async event => {
     event.preventDefault();
-    // props.login(user, props.loginHandler);
+    props.login(user, props.loginHandler);
 
     props.login(user, props.loginHandler)
       .then(() => {

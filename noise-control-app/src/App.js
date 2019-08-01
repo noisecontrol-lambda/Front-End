@@ -12,12 +12,13 @@ import OnboardingBasic from "./components/OnboardingBasic";
 import OnboardingIntake from "./components/OnboardingIntake";
 import OnboardingPreferences from "./components/OnboardingPreferences";
 import auth from "./authentication";
+import PreviousSafaris from "./components/PreviousSafaris"
 
 import "./App.scss";
 
 function App() {
-  const [teacher, setTeacher] = useState();
-  console.log(teacher);
+  const [teachers, setTeachers] = useState();
+  console.log('teachers', teachers);
 
   return (
     <div className="App">
@@ -26,7 +27,7 @@ function App() {
         exact
         path="/login"
         render={props => (
-          <Login {...props} teachers={teacher} login={auth.login} loginHandler={setTeacher} />
+          <Login {...props} teachers={teachers} login={auth.login} loginHandler={setTeachers} />
         )}
       />
       <Route exact path="/onboarding/welcome" component={MasterForm} />
@@ -36,8 +37,10 @@ function App() {
         exact path="/onboarding/preferences"
         component={OnboardingPreferences}
       />
+      <Route exact path="/class/" component={Class} />
+      <Route exact path="/class/previoussafaris" component={PreviousSafaris} />
 
-      <AuthExample setTeacher={setTeacher} />
+      <AuthExample setTeacher={setTeachers} />
       <WelcomePage />
       <Class />
       <Jungle />

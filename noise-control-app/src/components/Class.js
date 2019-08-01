@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import axiosWithAuth from '../axiosWithAuth';
 import { Button } from 'semantic-ui-react'
 import ClassButton from './ClassButton'
-import PreviousSafaris from './PreviousSafaris'
-import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Class (props) {
 
@@ -51,11 +50,12 @@ function Class (props) {
           </div>
           <div className="class-buttons">
             <Button>Begin Safari!</Button>
-            <Button>View Previous Safaris!</Button>
+            <Link to="/class/previoussafaris">
+              <Button>View Previous Safaris!</Button>
+            </Link>
           </div>
       </div>
-      
-      <PreviousSafaris />
+
     </div>
     )
   }
