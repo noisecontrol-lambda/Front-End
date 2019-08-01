@@ -1,33 +1,40 @@
 import React, { useState } from "react";
 import { Card, Button } from "semantic-ui-react";
 
-const Login = (props) => {
-
+const Login = props => {
+  console.log("users data", props.teachers);
 
   const [user, setUser] = useState({ email: "", password: "" });
 
   function handleChange(event) {
     const updatedUser = { ...user, [event.target.name]: event.target.value };
-    console.log('handle change',
-    event.target.name,
-    event.target.value,
-    'updated user', updatedUser);
+    console.log(
+      "handle change",
+      event.target.name,
+      event.target.value,
+      "updated user",
+      updatedUser
+    );
     setUser(updatedUser);
-    console.log('user', user);
+    console.log("user", user);
   }
 
-  const submitHandler = event => {
+  const submitHandler = async event => {
     event.preventDefault();
     // props.login(user, props.loginHandler);
-    props.login(user, props.loginHandler(user));
 
-    alert("user state", user)
+    props.login(user, props.loginHandler)
+      .then(() => {
+        console.log('then');
+      })
+      .catch(error => {
+        console.log(error);
+      });
     // then have some code to redirect to wherever you want them to go after login, don't worry about error handling yet until this works
   };
 
   return (
-    <Card className="login"
-      onSubmit={submitHandler}>
+    <Card className="login" onSubmit={submitHandler}>
       <h1>Welcome to back to Noise Control</h1>
       <h3>Log in here to see your classrooms.</h3>
       <form className="login-form">
@@ -45,9 +52,7 @@ const Login = (props) => {
           value={user.password}
           onChange={handleChange}
         />
-        <Button className="login-button">
-          Submit
-        </Button>
+        <Button className="login-button">Submit</Button>
       </form>
       <p>
         Need to create an account?{" "}

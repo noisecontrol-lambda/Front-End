@@ -36,14 +36,14 @@ const OnboardingIntake = props => {
           type="number"
           name="class-size"
           placeholder="Number of kids"
-          value={5}
+          value={props.numberKids}
           onChange={props.handleChange}
         />
         <Button className="back-basic-button" onClick={back}>
           Back
         </Button>
         <Button className="onboarding-intake-button" onClick={saveAndContinue}>
-          > Next up: preferences
+          Next up: preferences
         </Button>
       </form>
     </Card>
