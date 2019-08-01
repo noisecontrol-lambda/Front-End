@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, Button } from "semantic-ui-react";
 
 const Login = props => {
-  console.log("users data", props.teachers);
+  // console.log("users data", props.teachers);
 
   const [user, setUser] = useState({ email: "", password: "" });
 

@@ -1,5 +1,5 @@
 import AuthExample from "./components/AuthExample";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Class from "./components/Class";
 import Jungle from "../src/components/safariComponent/jungle";
 import Ocean from "../src/components/safariComponent/ocean";
@@ -7,18 +7,29 @@ import WelcomePage from "./components/WelcomePage";
 import { Route } from "react-router-dom";
 import Login from "./components/Login";
 import MasterForm from "./components/MasterForm";
-import OnboardingWelcome from "./components/OnboardingWelcome";
+// import OnboardingWelcome from "./components/OnboardingWelcome";
 import OnboardingBasic from "./components/OnboardingBasic";
 import OnboardingIntake from "./components/OnboardingIntake";
 import OnboardingPreferences from "./components/OnboardingPreferences";
 import auth from "./authentication";
 import PreviousSafaris from "./components/PreviousSafaris"
+import axiosWithAuth from './axiosWithAuth';
 
 import "./App.scss";
 
 function App() {
-  const [teachers, setTeachers] = useState();
-  console.log('teachers', teachers);
+  const [teachers, setTeachers] = useState([]);
+
+  useEffect(() => {
+    axiosWithAuth
+      .get(`https://noise-controller-backend.herokuapp.com/api/teachers`)
+      .then(res => {
+        setTeachers(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  },[])
 
   return (
     <div className="App">
@@ -31,7 +42,7 @@ function App() {
             {...props}
             teachers={teachers}
             login={auth.login}
-            loginHandler={setTeacher}
+            loginHandler={setTeachers}
           />
         )}
       />
@@ -42,12 +53,14 @@ function App() {
         exact path="/onboarding/preferences"
         component={OnboardingPreferences}
       />
-      <Route exact path="/class/" component={Class} />
+      <Route exact path="/class/"
+      render={props => (
+        <Class {...props} teachers={teachers} />
+      )} />
       <Route exact path="/class/previoussafaris" component={PreviousSafaris} />
 
       <AuthExample setTeacher={setTeachers} />
       <WelcomePage />
-      <Class />
       <Jungle />
       <Ocean />
     </div>
