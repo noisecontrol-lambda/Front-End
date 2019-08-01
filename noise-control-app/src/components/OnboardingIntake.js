@@ -33,12 +33,13 @@ const OnboardingIntake = props => {
           onChange={props.handleChange}
         />
         <input
-          type="number"
-          name="class-size"
+          type="text"
+          name="kidsNumber"
           placeholder="Number of kids"
-          value={props.numberKids}
+          value={props.kidsNumber}
           onChange={props.handleChange}
         />
+
         <Button className="back-basic-button" onClick={back}>
           Back
         </Button>
