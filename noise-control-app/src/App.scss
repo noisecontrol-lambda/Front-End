@@ -176,6 +176,12 @@ $accent-color: #ee7777;
       align-items: center;
     }
 
+    button.ui.button.back-basic-button {
+      @include button-style;
+      width: 100%;
+      background-color: $highlight-color;
+    }
+
     button.ui.button.onboarding-intake-button {
       @include button-style;
       width: 100%;
@@ -214,6 +220,14 @@ $accent-color: #ee7777;
       button.ui.button.onboarding-preferences-button {
         @include button-style;
         width: 40%;
+        margin: 20px;
+      }
+
+      button.ui.button.back-intake-button {
+        @include button-style;
+        width: 40%;
+        margin: 20px;
+        background-color: $highlight-color;
       }
 
       button.theme-choice-1 {
@@ -300,4 +314,28 @@ $accent-color: #ee7777;
   border-radius: 10px;
   margin: 20px 15px;
   padding: 10px;
+}
+
+.ocean-container {
+  display: flex; 
+  justify-content: center; 
+  
+    .ocean-picture {
+      width: 70%; 
+      margin: 15px;
+      border: 10px solid $secondary-color; 
+
+    }
+}
+
+.jungle-container {
+  display: flex; 
+  justify-content: center; 
+  
+    .jungle-picture {
+      display: flex; 
+      width: 70%; 
+      margin: 15px; 
+      border: 10px solid $secondary-color; 
+    }
 }

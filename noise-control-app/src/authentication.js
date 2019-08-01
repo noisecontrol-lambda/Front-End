@@ -11,12 +11,12 @@ const auth = {
         console.log(err);
       })
   },
-  login(user, setTeacher) {
+  login(user, setTeachers) {
     return axios
       .post('https://noise-controller-backend.herokuapp.com/api/teachers/login', user)
       .then(res => {
         localStorage.setItem('userToken', res.data.token);
-        setTeacher(res.data.teachers);
+        setTeachers(res.data.teachers);
       })
       .catch(err => {
         console.log(err);

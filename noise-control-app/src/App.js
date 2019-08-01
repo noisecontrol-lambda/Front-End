@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-
 import AuthExample from "./components/AuthExample";
+import React, { useState, useEffect } from "react";
 import Class from "./components/Class";
-import Jungle from "./components/jungle";
+import Jungle from "../src/components/safariComponent/jungle";
+import Ocean from "../src/components/safariComponent/ocean";
 import WelcomePage from "./components/WelcomePage";
 import { Route } from "react-router-dom";
 import Login from "./components/Login";
@@ -14,12 +14,12 @@ import OnboardingPreferences from "./components/OnboardingPreferences";
 import PrivateRoute from "./components/PrivateRoute";
 import axiosWithAuth from "./axiosWithAuth";
 import auth from "./authentication";
+import PreviousSafaris from "./components/PreviousSafaris"
 
 import "./App.scss";
 
-function App() {
-  const [teachers, setTeachers] = useState();
-  console.log('teacher', teachers);
+function App(props) {
+  const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
     axiosWithAuth
@@ -39,24 +39,31 @@ function App() {
         exact
         path="/login"
         render={props => (
-          <Login {...props} teachers={teachers} login={auth.login} loginHandler={setTeachers} />
+          <Login
+            {...props}
+            teachers={teachers}
+            login={auth.login}
+            loginHandler={setTeachers}
+          />
         )}
       />
       <Route exact path="/onboarding/welcome" component={MasterForm} />
       <Route exact path="/onboarding/basic" component={OnboardingBasic} />
       <Route exact path="/onboarding/intake" component={OnboardingIntake} />
       <Route
-        exact
-        path="/onboarding/preferences"
+        exact path="/onboarding/preferences"
         component={OnboardingPreferences}
       />
+      <PrivateRoute exact path="/class/"
+      component={props => (
+        <Class {...props} teachers={teachers} />
+      )} />
+      <PrivateRoute exact path="/class/previoussafaris" component={PreviousSafaris} />
 
-      {/* <AuthExample setTeachers={setTeachers} /> */}
+      {/* <AuthExample setTeacher={setTeachers} /> */}
       {/* <WelcomePage /> */}
-      <Class />
-      <Jungle />
-
-
+      {/* <Jungle /> */}
+      {/* <Ocean /> */}
     </div>
   );
 }
