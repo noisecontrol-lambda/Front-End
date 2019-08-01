@@ -28,7 +28,7 @@ function App() {
         render={props => (
           <Login
             {...props}
-            teachers={teacher}
+            teacher={teacher}
             login={auth.login}
             loginHandler={setTeacher}
           />
