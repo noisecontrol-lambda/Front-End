@@ -54,10 +54,9 @@ function App() {
         component={OnboardingPreferences}
       />
       <Route exact path="/class/"
-      render={props => (
-        <Class {...props} teachers={teachers} />
-      )} />
-      <Route exact path="/class/previoussafaris" component={PreviousSafaris} />
+      render={props => (<Class {...props} teachers={teachers} />)} />
+      <Route exact path="/class/previoussafaris"
+      render={props => (<Class {...props} teachers={teachers} />)} />
 
       <AuthExample setTeacher={setTeachers} />
       <WelcomePage />
