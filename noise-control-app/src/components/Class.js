@@ -4,7 +4,7 @@ import axiosWithAuth from '../axiosWithAuth';
 import { Button } from 'semantic-ui-react'
 import ClassButton from './ClassButton'
 import PreviousSafaris from './PreviousSafaris'
-
+import { Route } from 'react-router-dom';
 
 function Class (props) {
 
@@ -54,6 +54,7 @@ function Class (props) {
             <Button>View Previous Safaris!</Button>
           </div>
       </div>
+      
       <PreviousSafaris />
     </div>
     )
