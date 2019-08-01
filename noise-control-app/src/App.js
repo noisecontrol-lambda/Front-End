@@ -34,7 +34,13 @@ function App() {
           />
         )}
       />
-      <Route exact path="/onboarding/welcome" component={MasterForm} />
+      <Route
+        exact
+        path="/onboarding/welcome"
+        render={props => (
+          <MasterForm teacher={teacher} setTeacher={setTeacher} />
+        )}
+      />
       <Route exact path="/onboarding/basic" component={OnboardingBasic} />
       <Route exact path="/onboarding/intake" component={OnboardingIntake} />
       <Route
