@@ -17,9 +17,7 @@ import "./App.scss";
 
 function App() {
   const [teacher, setTeacher] = useState();
-  console.log('teacher', teacher);
-
-
+  console.log(teacher);
 
   return (
     <div className="App">
@@ -35,8 +33,7 @@ function App() {
       <Route exact path="/onboarding/basic" component={OnboardingBasic} />
       <Route exact path="/onboarding/intake" component={OnboardingIntake} />
       <Route
-        exact
-        path="/onboarding/preferences"
+        exact path="/onboarding/preferences"
         component={OnboardingPreferences}
       />
 
