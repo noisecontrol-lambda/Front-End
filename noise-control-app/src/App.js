@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import AuthExample from "./components/AuthExample";
 import Class from "./components/Class";
@@ -7,19 +7,30 @@ import WelcomePage from "./components/WelcomePage";
 import { Route } from "react-router-dom";
 import Login from "./components/Login";
 import MasterForm from "./components/MasterForm";
-import OnboardingWelcome from "./components/OnboardingWelcome";
+// import OnboardingWelcome from "./components/OnboardingWelcome";
 import OnboardingBasic from "./components/OnboardingBasic";
 import OnboardingIntake from "./components/OnboardingIntake";
 import OnboardingPreferences from "./components/OnboardingPreferences";
+import PrivateRoute from "./components/PrivateRoute";
+import axiosWithAuth from "./axiosWithAuth";
 import auth from "./authentication";
 
 import "./App.scss";
 
 function App() {
-  const [teacher, setTeacher] = useState();
-  console.log('teacher', teacher);
+  const [teachers, setTeachers] = useState();
+  console.log('teacher', teachers);
 
-
+  useEffect(() => {
+    axiosWithAuth
+      .get(`https://noise-controller-backend.herokuapp.com/api/teachers`)
+      .then(res => {
+        setTeachers(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  },[])
 
   return (
     <div className="App">
@@ -28,7 +39,7 @@ function App() {
         exact
         path="/login"
         render={props => (
-          <Login {...props} teachers={teacher} login={auth.login} loginHandler={setTeacher} />
+          <Login {...props} teachers={teachers} login={auth.login} loginHandler={setTeachers} />
         )}
       />
       <Route exact path="/onboarding/welcome" component={MasterForm} />
@@ -40,8 +51,8 @@ function App() {
         component={OnboardingPreferences}
       />
 
-      <AuthExample setTeacher={setTeacher} />
-      <WelcomePage />
+      {/* <AuthExample setTeachers={setTeachers} /> */}
+      {/* <WelcomePage /> */}
       <Class />
       <Jungle />
 
