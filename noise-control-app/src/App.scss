@@ -176,6 +176,12 @@ $accent-color: #ee7777;
       align-items: center;
     }
 
+    button.ui.button.back-basic-button {
+      @include button-style;
+      width: 100%;
+      background-color: $highlight-color;
+    }
+
     button.ui.button.onboarding-intake-button {
       @include button-style;
       width: 100%;
@@ -214,6 +220,14 @@ $accent-color: #ee7777;
       button.ui.button.onboarding-preferences-button {
         @include button-style;
         width: 40%;
+        margin: 20px;
+      }
+
+      button.ui.button.back-intake-button {
+        @include button-style;
+        width: 40%;
+        margin: 20px;
+        background-color: $highlight-color;
       }
 
       button.theme-choice-1 {
