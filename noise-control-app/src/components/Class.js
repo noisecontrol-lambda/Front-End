@@ -5,24 +5,13 @@ import { Link } from 'react-router-dom';
 
 function Class(props) {
   const { currentTeacher } = props;
-  // console.log('props', props);
-  // console.log('props.teachers', props.teachers);
-  // const currentTeacher = props.teachers[0] 
-  console.log('currentTeacher', currentTeacher);
+  const [classes, setClasses] = useState(currentTeacher.classes || []);
+
   const [id, setID] = useState(0)
-  // const [classInfo, setClassInfo] = useState([0])
-  const [classes, setClasses] = useState([])
-  // const [currentClass, setCurrentClass] = useState()
   const classSelector = event => {
     setID(event.target.value)
   }
-
-  useEffect(() => {
-    console.log('current', currentTeacher);
-    if (currentTeacher.length) setClasses(currentTeacher.classes);
-  }, [currentTeacher]);
-
-
+  
   return (
     <div>
       <div className="class-page">
