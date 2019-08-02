@@ -55,7 +55,7 @@ function App(props) {
         exact
         path="/onboarding/welcome"
         render={props => (
-          <MasterForm teachers={teachers} setTeachers={setTeachers} />
+          <MasterForm teachers={teachers} setTeachers={setTeachers} register={auth.register} addClass={auth.addClass} />
         )}
       />
       <Route exact path="/onboarding/basic" component={OnboardingBasic} />

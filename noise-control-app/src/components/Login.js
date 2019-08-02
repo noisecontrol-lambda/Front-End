@@ -63,7 +63,7 @@ const Login = props => {
         Need to create an account?{" "}
         <span>
           Head over{" "}
-          <a href="www.google.com" className="create-link">
+          <a href="/onboarding/welcome" className="create-link">
             here.
           </a>
         </span>
