@@ -9,12 +9,12 @@ function MasterForm(props) {
     firstName: "",
     lastName: "",
     email: "",
-    userName: "",
     password: "",
     className: "",
     grade: "",
     kidsNumber: "",
-    theme: ""
+    theme: "",
+    choice: ""
   });
 
   const [steps, setSteps] = useState(1);
@@ -41,7 +41,7 @@ function MasterForm(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.setTeacher([...props.teacher, data]);
+    props.setTeachers([...props.teachers, data]);
     console.log('data', data);
   };
 
@@ -60,7 +60,6 @@ function MasterForm(props) {
             handleSubmit={handleSubmit}
             firstName={data.firstName}
             lastName={data.lastName}
-            userName={data.userName}
             email={data.email}
             password={data.password}
           />
@@ -85,6 +84,9 @@ function MasterForm(props) {
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             theme={data.theme}
+            data={data}
+            setData={setData}
+            choice={data.choice}
           />
         );
       default:

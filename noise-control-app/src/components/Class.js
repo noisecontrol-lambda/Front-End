@@ -1,57 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 // import axios from "axios";
-import axiosWithAuth from '../axiosWithAuth';
+// import axiosWithAuth from '../axiosWithAuth';
 import { Button } from 'semantic-ui-react'
 import ClassButton from './ClassButton'
 import { Link } from 'react-router-dom';
 
-function Class (props) {
-  console.log('props', props);
-  console.log('props.teachers', props.teachers);
-  const currentTeacher = props.teachers[0]
-  console.log('currentTeacher', currentTeacher);
-
+function Class(props) {
+  const { currentTeacher } = props;
+  // console.log('props', props);
+  // console.log('props.teachers', props.teachers);
+  // const currentTeacher = props.teachers[0]
+  // console.log('currentTeacher', currentTeacher);
   const [id, setID] = useState(0)
   const [classInfo, setClassInfo] = useState([0])
-  const [classes, setClasses] = useState([
-  //   {"name": "Morning Kindergarten",
-  //   "teacherID": 1,
-  //   'theme': 'safari',
-  //   'grade': 'Kindergarten',
-  //   'numberOfKids': 15,
-  //   'streak': 3},
-  //   {"name": "Afternoon Kindergarten",
-  //   "teacherID": 1,
-  //   'theme': 'ocean',
-  //   'grade': 'Kindergarten',
-  //   'numberOfKids': 22,
-  //   'streak': 4},
-   ])
-  console.log('classes', classes);
+  const [classes, setClasses] = useState([])
   const [currentClass, setCurrentClass] = useState()
-
   const classSelector = event => {
     setID(event.target.value)
   }
 
-  if (currentTeacher === undefined) {
-    return null
-  }
-  if (currentTeacher.classes === undefined) {
-    return null
-  }
+  useEffect(() => {
+    if (currentTeacher.length) setClasses(currentTeacher.classes);
+  }, [currentTeacher]);
 
-  const tClasses = currentTeacher.classes;
-  if (classes.length === 0) {
-    setClasses(tClasses)
-  }
-  console.log('classes', classes);
-
-  console.log('tclasses', tClasses);
-  console.log('tclasses0', tClasses[0]);
-  // setClasses(tClasses)
-
-
+  console.log('classes', currentTeacher.classes);
 
   return (
     <div>
