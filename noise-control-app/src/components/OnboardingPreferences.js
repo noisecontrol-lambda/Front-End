@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import { Card, Button } from "semantic-ui-react";
 
 const OnboardingPreferences = props => {
-  const saveAndContinue = event => {
-    event.preventDefault();
-    props.nextStep();
-  };
-
   const back = event => {
     event.preventDefault();
     props.prevStep();
