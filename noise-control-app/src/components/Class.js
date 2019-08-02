@@ -7,11 +7,16 @@ function Class(props) {
 
   const { currentTeacher } = props;
   const [classes, setClasses] = useState(currentTeacher.classes || []);
+  const [currentClass, setCurrentClass] = useState([])
   console.log('classes', classes);
-
   const [id, setID] = useState(0)
+  console.log('id', id);
   const classSelector = event => {
     setID(event.target.value)
+  }
+
+  if (classes[id] === undefined) {
+      return null
   }
 
   return (
@@ -29,9 +34,9 @@ function Class(props) {
           </div>
           <div className="class-stats-wrapper">
             <div className="class-stats">
-              <p>Class : {classes.name} </p>
-              {/* <p>Grade :{classes[0].grade} </p> */}
-              {/* <p>Number of Students :{classes[0].numberOfKids} </p> */}
+              <p>Class: {classes[id].name} </p>
+              <p>Grade: {classes[id].grade} </p>
+              <p>Number of Students: {classes[id].numberOfKids} </p>
             </div>
           </div>
           <div className="class-buttons">
