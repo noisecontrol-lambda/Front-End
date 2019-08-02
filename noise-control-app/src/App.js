@@ -27,7 +27,9 @@ function App(props) {
       .get(`https://noise-controller-backend.herokuapp.com/api/teachers`)
       .then(res => {
         setTeachers(res.data);
-        setCurrentTeacher(res.data[0]);
+        const teacherEmail = localStorage.getItem('teacher');
+        const current = res.data.filter(teacher => teacher.email === teacherEmail);
+        if (current.length) setCurrentTeacher(current[0]);
       })
       .catch(err => {
         console.log(err);
@@ -53,7 +55,7 @@ function App(props) {
         exact
         path="/onboarding/welcome"
         render={props => (
-          <MasterForm teachers={teachers} setTeachers={setTeachers} />
+          <MasterForm teachers={teachers} setTeachers={setTeachers} register={auth.register} addClass={auth.addClass} />
         )}
       />
       <Route exact path="/onboarding/basic" component={OnboardingBasic} />
