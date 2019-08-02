@@ -36,13 +36,6 @@ const OnboardingBasic = props => {
           value={props.email}
         />
         <input
-          type="text"
-          name="userName"
-          placeholder="User name."
-          onChange={props.handleChange}
-          value={props.userName}
-        />
-        <input
           type="password"
           name="password"
           placeholder="Set password."

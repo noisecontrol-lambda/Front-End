@@ -20,12 +20,14 @@ import "./App.scss";
 
 function App(props) {
   const [teachers, setTeachers] = useState([]);
+  const [currentTeacher, setCurrentTeacher] = useState([]);
 
   useEffect(() => {
     axiosWithAuth
       .get(`https://noise-controller-backend.herokuapp.com/api/teachers`)
       .then(res => {
         setTeachers(res.data);
+        setCurrentTeacher(res.data[0]);
       })
       .catch(err => {
         console.log(err);
@@ -41,9 +43,7 @@ function App(props) {
         render={props => (
           <Login
             {...props}
-
-            teacher={teacher}
-
+            teachers={teachers}
             login={auth.login}
             loginHandler={setTeachers}
           />
@@ -53,7 +53,7 @@ function App(props) {
         exact
         path="/onboarding/welcome"
         render={props => (
-          <MasterForm teacher={teacher} setTeacher={setTeacher} />
+          <MasterForm teachers={teachers} setTeachers={setTeachers} />
         )}
       />
       <Route exact path="/onboarding/basic" component={OnboardingBasic} />
@@ -64,7 +64,7 @@ function App(props) {
       />
       <PrivateRoute exact path="/class/"
       component={props => (
-        <Class {...props} teachers={teachers} />
+        <Class {...props} teachers={teachers} currentTeacher={currentTeacher}/>
       )} />
       <PrivateRoute exact path="/class/previoussafaris" component={PreviousSafaris} />
 
