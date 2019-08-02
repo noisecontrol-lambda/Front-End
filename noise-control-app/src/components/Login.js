@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Card, Button } from "semantic-ui-react";
 
 const Login = props => {
-  console.log("users data", props.teachers);
+  // console.log("users data", props.teachers);
 
   const [user, setUser] = useState({ email: "", password: "" });
+  const [errorMsg, setErrorMsg] = useState('');
 
   function handleChange(event) {
     const updatedUser = { ...user, [event.target.name]: event.target.value };
@@ -21,16 +22,19 @@ const Login = props => {
 
   const submitHandler = async event => {
     event.preventDefault();
-    // props.login(user, props.loginHandler);
 
     props.login(user, props.loginHandler)
-      .then(() => {
-        console.log('then');
+      .then(response => {
+        if (!localStorage.getItem('userToken')) {
+          setErrorMsg('Login error. Please check your info and try again.');
+          setUser({ ...user, password: "" })
+        } else {
+          props.history.push('/class')
+        }
       })
       .catch(error => {
-        console.log(error);
+        setErrorMsg(error);
       });
-    // then have some code to redirect to wherever you want them to go after login, don't worry about error handling yet until this works
   };
 
   return (
@@ -52,13 +56,14 @@ const Login = props => {
           value={user.password}
           onChange={handleChange}
         />
+        {errorMsg && <div className="login-error">{errorMsg}</div>}
         <Button className="login-button">Submit</Button>
       </form>
       <p>
         Need to create an account?{" "}
         <span>
           Head over{" "}
-          <a href="www.google.com" className="create-link">
+          <a href="/onboarding/welcome" className="create-link">
             here.
           </a>
         </span>

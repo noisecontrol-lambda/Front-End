@@ -1,5 +1,5 @@
 import AuthExample from "./components/AuthExample";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Class from "./components/Class";
 import Jungle from "../src/components/safariComponent/jungle";
 import Ocean from "../src/components/safariComponent/ocean";
@@ -7,17 +7,36 @@ import WelcomePage from "./components/WelcomePage";
 import { Route } from "react-router-dom";
 import Login from "./components/Login";
 import MasterForm from "./components/MasterForm";
-import OnboardingWelcome from "./components/OnboardingWelcome";
+// import OnboardingWelcome from "./components/OnboardingWelcome";
 import OnboardingBasic from "./components/OnboardingBasic";
 import OnboardingIntake from "./components/OnboardingIntake";
 import OnboardingPreferences from "./components/OnboardingPreferences";
+import PrivateRoute from "./components/PrivateRoute";
+import axiosWithAuth from "./axiosWithAuth";
 import auth from "./authentication";
+import PreviousSafaris from "./components/PreviousSafaris";
 
 import "./App.scss";
 
-function App() {
-  const [teacher, setTeacher] = useState();
-  console.log("teacher", teacher);
+function App(props) {
+  const [teachers, setTeachers] = useState([]);
+  const [currentTeacher, setCurrentTeacher] = useState([]);
+
+  useEffect(() => {
+    axiosWithAuth
+      .get(`https://noise-controller-backend.herokuapp.com/api/teachers`)
+      .then(res => {
+        setTeachers(res.data);
+        const teacherEmail = localStorage.getItem("teacher");
+        const current = res.data.filter(
+          teacher => teacher.email === teacherEmail
+        );
+        if (current.length) setCurrentTeacher(current[0]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="App">
@@ -28,9 +47,9 @@ function App() {
         render={props => (
           <Login
             {...props}
-            teacher={teacher}
+            teachers={teachers}
             login={auth.login}
-            loginHandler={setTeacher}
+            loginHandler={setTeachers}
           />
         )}
       />
@@ -38,7 +57,12 @@ function App() {
         exact
         path="/onboarding/welcome"
         render={props => (
-          <MasterForm teacher={teacher} setTeacher={setTeacher} />
+          <MasterForm
+            teachers={teachers}
+            setTeachers={setTeachers}
+            register={auth.register}
+            addClass={auth.addClass}
+          />
         )}
       />
       <Route exact path="/onboarding/basic" component={OnboardingBasic} />
@@ -48,12 +72,27 @@ function App() {
         path="/onboarding/preferences"
         component={OnboardingPreferences}
       />
+      <PrivateRoute
+        exact
+        path="/class/"
+        component={props => (
+          <Class
+            {...props}
+            teachers={teachers}
+            currentTeacher={currentTeacher}
+          />
+        )}
+      />
+      <PrivateRoute
+        exact
+        path="/class/previoussafaris"
+        component={PreviousSafaris}
+      />
 
-      <AuthExample setTeacher={setTeacher} />
-      <WelcomePage />
-      <Class />
-      <Jungle />
-      <Ocean />
+      {/* <AuthExample setTeacher={setTeachers} /> */}
+      {/* <WelcomePage /> */}
+      {/* <Jungle /> */}
+      {/* <Ocean /> */}
     </div>
   );
 }

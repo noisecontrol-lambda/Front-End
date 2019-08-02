@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axiosWithAuth from "../axiosWithAuth";
 import { Button } from "semantic-ui-react";
 import PreviousSafarisCard from "./PreviousSafarisCard";
+import { Link } from 'react-router-dom';
 
 function PreviousSafaris(props) {
   const [pastSessions, setPastSessions] = useState([]);
@@ -32,7 +33,9 @@ function PreviousSafaris(props) {
           ))}
         </div>
       </div>
-      <Button>Back to class!</Button>
+      <Link to="/class">
+        <Button>Back to class!</Button>
+      </Link>
     </div>
   );
 }

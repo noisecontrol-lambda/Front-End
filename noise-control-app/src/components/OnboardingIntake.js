@@ -19,10 +19,12 @@ const OnboardingIntake = props => {
       <form className="onboarding-intake-form" onSubmit={props.handleSubmit}>
         <input
           type="text"
-          name="class-name"
+          name="nameOfClass"
           placeholder="Name of class."
           value={props.nameOfClass}
           onChange={props.handleChange}
+          autoFocus
+          required
         />
 
         <input
@@ -31,20 +33,22 @@ const OnboardingIntake = props => {
           placeholder="Grade"
           value={props.grade}
           onChange={props.handleChange}
+          required
         />
         <input
-          type="text"
-          name="kidsNumber"
+          type="number"
+          name="numberOfKids"
           placeholder="Number of kids"
-          value={props.kidsNumber}
+          value={Number(props.numberOfKids) || ''}
           onChange={props.handleChange}
+          required
         />
 
-        <Button className="back-basic-button" onClick={back}>
-          Back
-        </Button>
         <Button className="onboarding-intake-button" onClick={saveAndContinue}>
           Next up: preferences
+        </Button>
+        <Button className="back-basic-button" onClick={back}>
+          Back
         </Button>
       </form>
     </Card>

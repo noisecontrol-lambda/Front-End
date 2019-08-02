@@ -14,7 +14,7 @@ const auth = {
         console.log(err);
       });
   },
-  login(user, setTeacher) {
+  login(user, setTeachers) {
     return axios
       .post(
         "https://noise-controller-backend.herokuapp.com/api/teachers/login",
@@ -22,8 +22,9 @@ const auth = {
       )
       .then(res => {
         localStorage.setItem("userToken", res.data.token);
+        localStorage.setItem("teacher", user.email);
         console.log(res.data.teachers);
-        setTeacher(res.data.teachers);
+        setTeachers(res.data.teachers);
       })
       .catch(err => {
         console.log(err);

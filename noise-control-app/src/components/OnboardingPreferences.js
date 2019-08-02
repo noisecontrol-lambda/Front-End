@@ -27,24 +27,24 @@ const OnboardingPreferences = props => {
           className="onboarding-preferences-form"
           onSubmit={props.handleSubmit}
         >
-          <button className="theme-choice-1" onClick={handleChoice} value={1}>
+          <button name="theme" className="theme-choice-1" onClick={props.handleChange} value='1'>
             Jungle
           </button>
-          <button className="theme-choice-2" value={2} onClick={handleChoice}>
+          <button name="theme" className="theme-choice-2" value='2' onClick={props.handleChange}>
             Ocean
           </button>
-          <button className="theme-choice-3" value={3} onClick={handleChoice}>
+          <button name="theme" className="theme-choice-3" value='3' onClick={props.handleChange}>
             Safari
           </button>
-          <button className="theme-choice-4" value={4} onClick={handleChoice}>
+          <button name="theme" className="theme-choice-4" value='4' onClick={props.handleChange}>
             Mountains
           </button>
 
+          <Button className="onboarding-preferences-button" type="submit" onClick={props.handleSubmit}>
+            Submit
+          </Button>
           <Button className="back-intake-button" onClick={back}>
             Back
-          </Button>
-          <Button className="onboarding-preferences-button" type="submit">
-            Submit
           </Button>
         </form>
       </Card>

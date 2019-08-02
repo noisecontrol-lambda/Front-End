@@ -3,20 +3,22 @@ import OnboardingWelcome from "./OnboardingWelcome";
 import OnboardingBasic from "./OnboardingBasic";
 import OnboardingIntake from "./OnboardingIntake";
 import OnboardingPreferences from "./OnboardingPreferences";
+import auth from "../authentication";
 
 function MasterForm(props) {
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    userName: "",
     password: "",
-    className: "",
+    nameOfClass: "",
     grade: "",
-    kidsNumber: "",
+    numberOfKids: "",
     theme: "",
     choice: ""
   });
+
+  const [errorMsg, setErrorMsg] = useState('');
 
   const [steps, setSteps] = useState(1);
 
@@ -29,15 +31,52 @@ function MasterForm(props) {
   }
 
   const handleChange = event => {
+    event.preventDefault();
     const updatedData = { ...data, [event.target.name]: event.target.value };
+    console.log(
+      "handle change",
+      event.target.name,
+      event.target.value,
+      "updated data",
+      updatedData
+    )
     setData(updatedData);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.setTeacher([...props.teacher, data]);
-    console.log(data);
+    props.setTeachers([...props.teachers, data]);
+    console.log('data', data);
+    if (steps === 4) handleRegistration();
   };
+
+  const handleRegistration = async () => {
+    console.log('Submitting registration');
+    const user = {
+      email: data.email,
+      password: data.password,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      theme: data.theme
+    }
+    const classRoom = {
+      name: data.nameOfClass,
+      grade: data.grade,
+      numberOfKids: Number(data.numberOfKids),
+      theme: data.theme
+    }
+    props.register({user, classRoom })
+      .then(response => {
+        if (!localStorage.getItem('userToken')) {
+          setErrorMsg('Registration error. Please check your info and try again.');
+        } else {
+          props.history.push('/class')
+        }
+      })
+      .catch(error => {
+        setErrorMsg(error);
+      });
+  }
 
   function wizard() {
     switch (steps) {
@@ -54,7 +93,6 @@ function MasterForm(props) {
             handleSubmit={handleSubmit}
             firstName={data.firstName}
             lastName={data.lastName}
-            userName={data.userName}
             email={data.email}
             password={data.password}
           />
@@ -68,7 +106,7 @@ function MasterForm(props) {
             handleSubmit={handleSubmit}
             nameOfClass={data.nameOfClass}
             grade={data.grade}
-            kidsNumber={data.kidsNumber}
+            numberOfKids={data.numberOfKids}
           />
         );
       case 4:

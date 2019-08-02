@@ -18,6 +18,8 @@ const OnboardingBasic = props => {
           placeholder="First name."
           onChange={props.handleChange}
           value={props.firstName}
+          autoFocus
+          required
         />
 
         <input
@@ -26,6 +28,7 @@ const OnboardingBasic = props => {
           placeholder="Last name."
           onChange={props.handleChange}
           value={props.lastName}
+          required
         />
 
         <input
@@ -34,13 +37,7 @@ const OnboardingBasic = props => {
           placeholder="Email."
           onChange={props.handleChange}
           value={props.email}
-        />
-        <input
-          type="text"
-          name="userName"
-          placeholder="User name."
-          onChange={props.handleChange}
-          value={props.userName}
+          required
         />
         <input
           type="password"
@@ -48,6 +45,7 @@ const OnboardingBasic = props => {
           placeholder="Set password."
           onChange={props.handleChange}
           value={props.password}
+          required
         />
         <Button className="onboarding-basic-button" onClick={saveAndContinue}>
           Next: class info
