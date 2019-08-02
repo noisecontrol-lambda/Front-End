@@ -21,8 +21,9 @@ const auth = {
         user
       )
       .then(res => {
-        localStorage.setItem('userToken', res.data.token);
-        setTeachers(res.data.teachers);
+        localStorage.setItem("userToken", res.data.token);
+        console.log(res.data.teachers);
+        setTeacher(res.data.teachers);
       })
       .catch(err => {
         console.log(err);

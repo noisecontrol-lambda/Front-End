@@ -56,3 +56,4 @@ function Class(props) {
 }
 
 export default Class
+
