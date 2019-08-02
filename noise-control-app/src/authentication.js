@@ -22,6 +22,7 @@ const auth = {
       )
       .then(res => {
         localStorage.setItem("userToken", res.data.token);
+        localStorage.setItem("teacher", user.email);
         console.log(res.data.teachers);
         setTeachers(res.data.teachers);
       })

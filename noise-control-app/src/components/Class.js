@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import axiosWithAuth from '../axiosWithAuth';
 import { Button } from 'semantic-ui-react'
 import ClassButton from './ClassButton'
 import { Link } from 'react-router-dom';
@@ -10,16 +8,17 @@ function Class(props) {
   // console.log('props', props);
   // console.log('props.teachers', props.teachers);
   // const currentTeacher = props.teachers[0] 
-  // console.log('currentTeacher', currentTeacher);
+  console.log('currentTeacher', currentTeacher);
   const [id, setID] = useState(0)
-  const [classInfo, setClassInfo] = useState([0])
+  // const [classInfo, setClassInfo] = useState([0])
   const [classes, setClasses] = useState([])
-  const [currentClass, setCurrentClass] = useState()
+  // const [currentClass, setCurrentClass] = useState()
   const classSelector = event => {
     setID(event.target.value)
   }
 
   useEffect(() => {
+    console.log('current', currentTeacher);
     if (currentTeacher.length) setClasses(currentTeacher.classes);
   }, [currentTeacher]);
 

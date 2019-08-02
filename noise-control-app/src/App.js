@@ -27,7 +27,9 @@ function App(props) {
       .get(`https://noise-controller-backend.herokuapp.com/api/teachers`)
       .then(res => {
         setTeachers(res.data);
-        setCurrentTeacher(res.data[0]);
+        const teacherEmail = localStorage.getItem('teacher');
+        const current = res.data.filter(teacher => teacher.email === teacherEmail);
+        if (current.length) setCurrentTeacher(current[0]);
       })
       .catch(err => {
         console.log(err);
