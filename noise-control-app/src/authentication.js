@@ -23,7 +23,7 @@ const auth = {
       .then(res => {
         localStorage.setItem("userToken", res.data.token);
         console.log(res.data.teachers);
-        setTeacher(res.data.teachers);
+        setTeachers(res.data.teachers);
       })
       .catch(err => {
         console.log(err);
